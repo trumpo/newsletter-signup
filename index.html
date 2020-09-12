@@ -28,6 +28,21 @@
 	.form-email::-webkit-input-placeholder {
 		font-size: 16px;
 	}
+	.form-uns-email{
+		position: static;
+		left: 0;
+		width:70% !important;
+		padding-right: 25% !important;
+	}
+	.form-uns-email::-moz-placeholder {
+		font-size: 16px;
+	}
+	.form-uns-email:-ms-input-placeholder {
+		font-size: 16px;
+	}
+	.form-uns-email::-webkit-input-placeholder {
+		font-size: 16px;
+	}
 	.form-btn{
 		position: absolute;
 		margin-bottom: 15px;
@@ -40,6 +55,19 @@
 		color: #ffffff;
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 		background-color: #901a1e;
+	}
+	.form-uns-btn{
+		position: absolute;
+		margin-bottom: 15px;
+		padding: 11px;
+		width: 25%;
+		border-radius: 50px;
+		right: 30%;;
+		cursor: pointer;
+		border:none;
+		color: #ffffff;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+		background-color: #0e0f55;
 	}
 	input[type=text]{
 		border: 1px solid #f3f3f3;
@@ -79,7 +107,7 @@
 				<form class="form-email-js">
 					<input class="form-email " type="text" id="firstname" name="firstname" placeholder="Enter First Name "/>
 					<input class="form-email " type="text" id="lastname" name="lastname" placeholder="Enter Last Name "/>
-					<input class="form-email validate-email" type="text" id="email" name="email" placeholder="Enter Email Address"/>
+					<input class="form-email validate-email" type="text" id="email" name="email" placeholder="Enter Email "/>
 					<input class="form-btn text-center" type="submit" value="Subscribe"/>
 				</form>
 				<br>
@@ -97,6 +125,22 @@
 			</div>		
 		</div>
 
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<form class="form-unsibscribe-js">
+					<input class="form-uns-email validate-uns-email" type="text" id="email" name="email" placeholder="Enter Email "/>
+					<input class="form-uns-btn text-center" type="submit" value="Unsubscribe"/>
+				</form>
+			</div>		
+		</div>
 	</div>
 </body>
 
@@ -108,27 +152,27 @@
 				$(this).addClass('field-error');
 				$(".form-btn").animate({
 					width: "70%"
-				},1000).text("Please enter valid Email Address");
+				},1000).val("Please enter valid Email Address");
 				setTimeout(function() {
 					$(".form-btn").animate({
 						width: "25%"
 					},1000);
 					setTimeout(function() {
-						$(".form-btn").text("Subscribe").fadeIn(1000);
+						$(".form-btn").val("Subscribe").fadeIn(1000);
 					},1000);
 				}, 2000);
 			} else {
 				$(this).removeClass('field-error');
 				$(".form-btn").animate({
 					width: "70%",
-				},1000).text("Successfully Submitted").css("background","#008000");
+				},1000).val("Successfully Submitted").css("background","#008000");
 				setTimeout(function() {
 					$('.form-email').val('');
 					$(".form-btn").animate({
 						width: "25%",
 					},1000);
 					setTimeout(function() {
-						$(".form-btn").text("Submit").css("background","#901a1e");
+						$(".form-btn").val("Submit").css("background","#901a1e");
 					},1000);
 				}, 2000);
 			}
@@ -136,6 +180,40 @@
 	})
 
 
+
+	$(".form-unsibscribe-js").submit(function(e){
+		e.preventDefault();
+		$("form").find('.validate-uns-email').each(function() {
+			if (!(/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val()))) {
+				$(this).addClass('field-error');
+				$(".form-uns-btn").animate({
+					width: "70%"
+				},1000).val("Please enter valid Email Address");
+				setTimeout(function() {
+					$(".form-uns-btn").animate({
+						width: "25%"
+					},1000);
+					setTimeout(function() {
+						$(".form-uns-btn").val("Subscribe").fadeIn(1000);
+					},1000);
+				}, 2000);
+			} else {
+				$(this).removeClass('field-error');
+				$(".form-uns-btn").animate({
+					width: "70%",
+				},1000).val("Successfully Submitted").css("background","#008000");
+				setTimeout(function() {
+					$('.form-uns-email').val('');
+					$(".form-uns-btn").animate({
+						width: "25%",
+					},1000);
+					setTimeout(function() {
+						$(".form-uns-btn").val("Submit").css("background","#0e0f55");
+					},1000);
+				}, 2000);
+			}
+		});
+	})
 
 </script>
 </html>
