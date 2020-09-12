@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Newsletter Signup</title>
+	<title>Subsribe to Newsletter</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link rel="icon" type="image/x-icon" href="img/favicon.png" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -73,32 +73,36 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
+				<p class="p-t-40"></p>
+				<p></p>
 				<h2>Subscribe Newsletter !!</h2>
 				<form class="form-email-js">
-					<input class="form-email" type="text" id="firstname" name="firstname" placeholder="Enter First Name">
-					<input class="form-email" type="text" id="lastName" name="lastName" placeholder="Enter Last Name">
-					<input class="form-email validate-email" type="text" id="email" name="email" placeholder="Enter Email Address">
-					<div class="form-btn text-center">Subscribe</div>
+					<input class="form-email " type="text" id="firstname" name="firstname" placeholder="Enter First Name Address"/>
+					<input class="form-email " type="text" id="lastname" name="lastname" placeholder="Enter Last Name Address"/>
+					<input class="form-email validate-email" type="text" id="email" name="email" placeholder="Enter Email Address"/>
+					<input class="form-btn text-center" type="submit" value="Subscribe"/>
 				</form>
+				<br>
+				
 			</div>
 		</div>
-        <div class="row">
-        
+		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <p class="p-t-40">We will not share your data, You can unsubscribe any time via the link provided in Newsletter.</p>
-                <p>For more informations about our privacy practices, please visit our website.</p>
-			</div>
-        </div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<p>We will not share your data, You can unsubscribe any time via the link provided in Newsletter.</p>
+				<p>For more informations about our privacy practices, please visit our website.</p>
+			</div>		
+		</div>
+
 	</div>
 </body>
 
 <script type="text/javascript">
-	$(".form-btn").click(function(){
+    $(".form-email-js").submit(function(e){
+		e.preventDefault();
 		$("form").find('.validate-email').each(function() {
 			if (!(/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val()))) {
 				$(this).addClass('field-error');
